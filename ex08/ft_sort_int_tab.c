@@ -1,29 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_rev_int_tab.c                                   :+:      :+:    :+:   */
+/*   ft_sort_int_tab.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: soilee <soilee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/11 16:57:43 by soilee            #+#    #+#             */
-/*   Updated: 2020/07/11 17:37:39 by soilee           ###   ########.fr       */
+/*   Created: 2020/07/11 17:34:48 by soilee            #+#    #+#             */
+/*   Updated: 2020/07/11 17:47:50 by soilee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_rev_int_tab(int *tab, int size)
+void	ft_sort_int_tab(int *tab, int size)
 {
-	int i;
-	int arr_len;
 	int temp;
+	int i;
+	int index;
+	int arr_len;
 
 	i = 0;
 	arr_len = size - 1;
-	while (i < arr_len)
+	while (i < size)
 	{
-		temp = tab[i];
-		tab[i] = tab[arr_len];
-		tab[arr_len] = temp;
+		index = 0;
+		while (index <= arr_len)
+		{
+			if (tab[index] > tab[index + 1])
+			{
+				temp = tab[index + 1];
+				tab[index + 1] = tab[index];
+				tab[index] = temp;
+			}
+			index++;
+		}
 		i++;
-		arr_len--;
 	}
 }
